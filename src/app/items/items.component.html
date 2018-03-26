@@ -1,0 +1,68 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="mod-header">
+    <label class="modal-title" text-align="center">Add new list item</label>
+  </div>
+  <div class="mod-input">
+    <input class="input" type="text" [(ngModel)]="newItem.name" (input)="setCharsLeft()" maxlength="27" />
+
+  </div>
+  <div class="mod-label">
+    <label>Characters left: {{charsLeft}}</label>
+  </div>
+  <div class="mod-footer">
+    <button type="button" class="btn btn-outline-dark btnOK" (click)="c('OK')">OK</button>
+    <button type="button" class="btn btn-outline-dark btnCancel" (click)="c('Cancel')">Cancel</button>
+  </div>
+</ng-template>
+
+<div class="parent">
+  <nav class="navbar fixed-top">
+    <img class="settings" src="../../assets/images/settings_icon.png" *ngIf="!isEdit" height="20px" />
+    <img class="settings" src="../../assets/images/Shape 3.png" (click)="open(content)" *ngIf="isEdit" height="20px" />
+    <label>Groceries</label>
+    <img class="edit" src="../../assets/images/edit_icon_active.png" *ngIf="!isEdit" (click)="setEdit(true)" height="20px" />
+    <label *ngIf="isEdit" (click)="setEdit(false)">Done</label>
+  </nav>
+  <nav class="navbar fixed-bottom">
+    <img class="listIcon" src="../../assets/images/list_icon_active.png" *ngIf="!onlyCart||isEdit" height="30px" />
+    <img class="listIcon" src="../../assets/images/list_icon_inactive.png" *ngIf="onlyCart&&!isEdit" (click)="setCart(false)"
+      height="30px" />
+
+    <img class="cartIcon" src="../../assets/images/cart_icon_active.png" *ngIf="onlyCart&&!isEdit" height="30px" />
+    <img class="cartIcon" src="../../assets/images/cart_icon_inactive.png" *ngIf="!onlyCart||isEdit" (click)="setCart(true)"
+      height="30px" />
+  </nav>
+  <div class="list" *ngIf="!isEdit">
+    <div *ngFor="let item of items; let i=index">
+      <div class="item" *ngIf="item.cart||!onlyCart" [@State]="state[i]" [style.marginLeft.px]="x[i]" (panstart)="onPanStart($event,i)"
+        (panmove)="onPan($event,i)" (panend)="onPanEnd($event,i)">
+        <div class="cart">
+          <img class="cartImg" src="../../assets/images/cart_icon_50px.png" height="20px" />
+        </div>
+        <div class="name">
+          <label class="nameLabel">
+            {{item.name}}
+          </label>
+        </div>
+        <div class="home">
+          <img class="homeImg" src="../../assets/images/home_icon_46px.png" height="20px" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list" *ngIf="isEdit">
+    <div *ngFor="let item of items; let i=index">
+      <div class="item">
+        <div class="delete" (click)="delete(i)">
+          <img class="deleteIcon" src="../../assets/images/delete.png" height="30px" />
+        </div>
+        <div class="name" (click)="edit(i, content)">
+          <label class="nameLabel">
+            {{item.name}}
+          </label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

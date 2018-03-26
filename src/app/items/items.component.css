@@ -1,0 +1,137 @@
+@font-face {
+    font-family: font;
+    src: url("../../assets/DINAlternateBold.otf");
+}
+
+.parent{
+    overflow-x: hidden;
+}
+
+.navbar{
+   background-color: rgb(248,248,248);
+    height: 60px;    
+    font-family: font;
+    font-size: 20px;
+}
+
+.list{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.item{
+    width: calc(100% + 60px);
+    white-space: nowrap;
+    font-size: 0;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgb(214, 214, 214);
+}
+
+.cart{
+    background-color: rgb(231, 231, 231);
+    width: 60px;
+    height: 60px;
+    display:inline-block;
+    border-right: 3px solid;
+    border-color: rgb(222, 222, 222);
+}
+
+.home{
+    background-color: rgb(231, 231, 231);
+    width: 60px;
+    height: 60px;
+    display:inline-block;
+    border-left: 3px solid;
+    border-color: rgb(222, 222, 222);
+}
+
+.name{
+    width: calc(100% - 120px);
+    height: 60px; 
+    display:inline-block;
+}
+
+.cartImg{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.homeImg{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.nameLabel{
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 20px;
+    font-family: font;
+    vertical-align: 22px;
+}
+
+.listIcon{
+    margin-left: 60px;
+}
+
+.cartIcon{
+    margin-right: 60px;
+}
+
+.delete{
+    width: 60px;
+    height: 60px;    
+    display:inline-block;
+}
+
+.deleteIcon{
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.input{
+    border-style: none;
+    border-bottom-style: solid;
+    outline-style: none;
+    width: 90%;
+}
+
+.mod-header{
+    font-size: 20px;
+    font-family: font;
+    text-align: center;
+}
+
+.mod-input{
+    font-size: 20px;
+    font-family: font;
+    text-align: center;
+}
+
+.mod-label{
+    font-size: 20px;
+    font-family: font;
+    text-align: right;
+    margin-right: 5%;
+}
+
+.mod-footer{
+    display: block;
+    font-size: 20px;
+    font-family: font;
+}
+
+.btnOK{
+    float: right;
+    margin-right: 5%;
+    width: 25%;
+}
+
+.btnCancel{
+    margin-left: 5%;
+    width: 25%;
+}
